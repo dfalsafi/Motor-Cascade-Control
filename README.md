@@ -23,7 +23,7 @@ where τ_em is the electromagnetic torque, τ_l is the applied load torque, J is
 **3. Electromechanical Coupling:**
 The electrical and mechanical domains are bridged using two equal coefficients: the torque constant (kt) and the back-emf constant (ke). In standard SI units, their values are equivalent (ke = kt). 
 
-![DC Motor Electromechanical Interconnections](Visual%20Relating%20Mechanical%20System%20Dynamics%20to%20Electrical%20System%20Design/Visual%20Relating%20Mechanical%20System%20Dynamics%20to%20Electrical%20System%20Design.jpeg)
+<img src="Visual%20Relating%20Mechanical%20System%20Dynamics%20to%20Electrical%20System%20Design/Visual%20Relating%20Mechanical%20System%20Dynamics%20to%20Electrical%20System%20Design.jpeg" alt="DC Motor Electromechanical Interconnections" width="75%">
 
 This coupling relationship is visually displayed in the diagram. The mechanical and electrical system differential equations are shown stacked, with interconnecting loops and triangular gain blocks representing the torque constant (k_t) and back-emf constant (k_e).
 
