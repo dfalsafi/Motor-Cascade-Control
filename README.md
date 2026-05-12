@@ -20,7 +20,7 @@ where $\tau_{em}$ is the electromagnetic torque, $\tau_l$ is the applied load to
 The electrical and mechanical domains are bridged using two equal coefficients: the torque constant ($k_t$) and the back-emf constant ($k_e$). In standard SI units, their values are equivalent ($k_e = k_t$). 
 
 This equation relationship is visually displayed with the mechanical equation sitting directly on top of the electrical equation, traced for their connection with the constants in a block (represented as a triangle multiplier):
-* The armature current ($i$) from the bottom electrical equation is traced up through a $k_t$ triangle multiplier block to produce the electromagnetic torque ($\tau_{em}$) in the top mechanical equation.
+* The armature current (i) from the bottom electrical equation is traced up through a $k_t$ triangle multiplier block to produce the electromagnetic torque ($\tau_{em}$) in the top mechanical equation.
 * The rotor speed ($\omega$) from the top mechanical equation is traced down through a $k_e$ triangle multiplier block to produce the back-emf ($E_a$) in the bottom electrical equation.
 
 **Torque Equation:**
