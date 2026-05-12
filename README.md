@@ -8,28 +8,24 @@ The DC motor model connects the electrical and mechanical systems together. The 
 
 **1. Electrical System:**
 The electrical dynamics are governed by the armature voltage equation:
-$$V_a = E_a + L \frac{di}{dt} + iR$$
-where $V_a$ is the armature terminal voltage, $i$ is the armature current, $R$ is the armature resistance, $L$ is the inductance, and $E_a$ is the back-electromotive force.
+$$V = R i + e_{emf} + L \frac{di}{dt}$$
+where $V$ is the terminal voltage, $i$ is the armature current, $R$ is the armature resistance, $L$ is the inductance, and $e_{emf}$ is the back-electromotive force.
 
 **2. Mechanical System:**
 The mechanical dynamics are governed by Newton's second law for rotation:
-$$\tau_{em} = \tau_l + J \frac{d\omega}{dt} + B\omega$$
-where $\tau_{em}$ is the electromagnetic torque, $\tau_l$ is the applied load torque, $J$ is the moment of inertia, $B$ is the viscous friction coefficient, and $\omega$ is the rotor speed.
+$$T_{em} = T_{load} + J \frac{d\omega}{dt} + B\omega$$
+where $T_{em}$ is the electromagnetic torque, $T_{load}$ is the applied load torque, $J$ is the moment of inertia, $B$ is the viscous friction coefficient, and $\omega$ is the rotor speed.
 
 **3. Electromechanical Coupling:**
-The electrical and mechanical domains are bridged using two equal coefficients: the torque constant ($k_t$) and the back-emf constant ($k_e$). In standard SI units, their values are equivalent ($k_e = k_t$). 
-
-This equation relationship is visually displayed with the mechanical equation sitting directly on top of the electrical equation, traced for their connection with the constants in a block (represented as a triangle multiplier):
-* The armature current ($i$) from the bottom electrical equation is traced up through a $k_t$ triangle multiplier block to produce the electromagnetic torque ($\tau_{em}$) in the top mechanical equation.
-* The rotor speed ($\omega$) from the top mechanical equation is traced down through a $k_e$ triangle multiplier block to produce the back-emf ($E_a$) in the bottom electrical equation.
+The electrical and mechanical domains are bridged using two equal coefficients: the torque constant ($k_t$) and the back-emf constant ($k_e$). In standard SI units, their values are equivalent ($k_e = k_t$).
 
 **Torque Equation:**
-$$\tau_{em} = k_t i$$
+$$T_{em} = k_t i$$
 *(where $i$ is the armature current)*
 
 **Back-EMF Equation:**
-$$E_a = k_e \omega$$
-*(where $E_a$ is the induced electromotive force)*
+$$e_{emf} = k_e \omega$$
+*(where $e_{emf}$ is the induced electromotive force)*
 
 **MATLAB and Simulink** were used to show this control design and implement the PI controller model, allowing for an accurate simulation of the system's combined electromechanical response.
 
