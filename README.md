@@ -8,28 +8,34 @@ The DC motor model connects the electrical and mechanical systems together. The 
 
 **1. Electrical System:**
 The electrical dynamics are governed by the armature voltage equation:
-$$V_a = E_a + L \frac{di}{dt} + iR$$
-where $V_a$ is the armature terminal voltage, $i$ is the armature current, $R$ is the armature resistance, $L$ is the inductance, and $E_a$ is the back-electromotive force.
+
+**Va = Ea + L(di/dt) + iR**
+
+where Va is the armature terminal voltage, i is the armature current, R is the armature resistance, L is the inductance, and Ea is the back-electromotive force.
 
 **2. Mechanical System:**
 The mechanical dynamics are governed by Newton's second law for rotation:
-$$\tau_{em} = \tau_l + J \frac{d\omega}{dt} + B\omega$$
-where $\tau_{em}$ is the electromagnetic torque, $\tau_l$ is the applied load torque, $J$ is the moment of inertia, $B$ is the viscous friction coefficient, and $\omega$ is the rotor speed.
+
+**τ_em = τ_l + J(dω/dt) + Bω**
+
+where τ_em is the electromagnetic torque, τ_l is the applied load torque, J is the moment of inertia, B is the viscous friction coefficient, and ω is the rotor speed.
 
 **3. Electromechanical Coupling:**
-The electrical and mechanical domains are bridged using two equal coefficients: the torque constant ($k_t$) and the back-emf constant ($k_e$). In standard SI units, their values are equivalent ($k_e = k_t$). 
+The electrical and mechanical domains are bridged using two equal coefficients: the torque constant (kt) and the back-emf constant (ke). In standard SI units, their values are equivalent (ke = kt). 
+
+http://googleusercontent.com/image_generation_content/0
 
 This equation relationship is visually displayed with the mechanical equation sitting directly on top of the electrical equation, traced for their connection with the constants in a block (represented as a triangle multiplier):
-* The armature current (i) from the bottom electrical equation is traced up through a $k_t$ triangle multiplier block to produce the electromagnetic torque ($\tau_{em}$) in the top mechanical equation.
-* The rotor speed ($\omega$) from the top mechanical equation is traced down through a $k_e$ triangle multiplier block to produce the back-emf ($E_a$) in the bottom electrical equation.
+* The armature current (i) from the bottom electrical equation is traced up through a kt triangle multiplier block to produce the electromagnetic torque (τ_em) in the top mechanical equation.
+* The rotor speed (ω) from the top mechanical equation is traced down through a ke triangle multiplier block to produce the back-emf (Ea) in the bottom electrical equation.
 
 **Torque Equation:**
-$$\tau_{em} = k_t i$$
-*(where $i$ is the armature current)*
+**τ_em = kt * i**
+*(where i is the armature current)*
 
 **Back-EMF Equation:**
-$$E_a = k_e \omega$$
-*(where $E_a$ is the induced electromotive force)*
+**Ea = ke * ω**
+*(where Ea is the induced electromotive force)*
 
 **MATLAB and Simulink** were used to show this control design and implement the PI controller model, allowing for an accurate simulation of the system's combined electromechanical response.
 
@@ -40,14 +46,14 @@ The system utilizes a nested cascaded control topology, which allows for precise
 
 ## DC Motor Parameters
 The controllers were designed and simulated based on the following physical parameters of the DC motor:
-* **Armature resistance ($R$):** $1 \, \Omega$
-* **Armature inductance ($L$):** $4 \, mH$
-* **Torque/Back-emf constant ($k_t = k_e$):** $0.1 \, Nm/A$ 
-* **Rotational inertia ($J$):** $200\mu \, kg \cdot m^2$
-* **Coefficient of viscous friction ($B$):** $500\mu \, kg \cdot m^2 \cdot s$
+* **Armature resistance (R):** 1 Ω
+* **Armature inductance (L):** 4 mH
+* **Torque/Back-emf constant (kt = ke):** 0.1 Nm/A 
+* **Rotational inertia (J):** 200μ kg·m²
+* **Coefficient of viscous friction (B):** 500μ kg·m²·s
 
 ## Project Structure
 * **`P1_Current_PI_Controller` (Inner Loop):** Design of the high-speed inner PI controller regulating the armature current. Evaluates performance across different phase margins (30°, 60°, 85°).
 * **`P2_Speed_Cascade_Controller` (Outer Loop):** Implementation of the slower outer speed PI controller that calculates the reference torque/current for the inner loop.
-* **`P3_Angular_Position_Controller`:** Introduces a third, outermost control loop to regulate the specific angular position ($\theta$) of the motor shaft.
-* **`P4_Zero_Integral_Gain_Analysis`:** Analyzes steady-state error and system stability when the integral gain ($k_i$) is set to zero (pure Proportional control) for both the current and speed loops.
+* **`P3_Angular_Position_Controller`:** Introduces a third, outermost control loop to regulate the specific angular position (θ) of the motor shaft.
+* **`P4_Zero_Integral_Gain_Analysis`:** Analyzes steady-state error and system stability when the integral gain (ki) is set to zero (pure Proportional control) for both the current and speed loops.
