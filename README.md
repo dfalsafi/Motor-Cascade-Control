@@ -21,13 +21,11 @@ The mechanical dynamics are governed by Newton's second law for rotation:
 where τ_em is the electromagnetic torque, τ_l is the applied load torque, J is the moment of inertia, B is the viscous friction coefficient, and ω is the rotor speed.
 
 **3. Electromechanical Coupling:**
-The electrical and mechanical domains are bridged using two equal coefficients: the torque constant (kt) and the back-emf constant (ke). In standard SI units, their values are equivalent (ke = kt). 
+The electrical and mechanical domains are bridged using two equal coefficients: the torque constant (kt) and the back-emf constant (ke). In standard SI units, their values are equivalent (ke = kt). 
 
-http://googleusercontent.com/image_generation_content/0
+![DC Motor Electromechanical Interconnections](Visual Relating Mechanical System Dynamics to Electrical System Design/coupling_diagram.png)
 
-This equation relationship is visually displayed with the mechanical equation sitting directly on top of the electrical equation, traced for their connection with the constants in a block (represented as a triangle multiplier):
-* The armature current (i) from the bottom electrical equation is traced up through a kt triangle multiplier block to produce the electromagnetic torque (τ_em) in the top mechanical equation.
-* The rotor speed (ω) from the top mechanical equation is traced down through a ke triangle multiplier block to produce the back-emf (Ea) in the bottom electrical equation.
+This coupling relationship is visually displayed in the diagram. The mechanical and electrical system differential equations are shown stacked, with interconnecting loops and triangular gain blocks representing the torque constant (k_t) and back-emf constant (k_e).
 
 **Torque Equation:**
 **τ_em = kt * i**
